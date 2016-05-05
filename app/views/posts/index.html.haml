@@ -1,0 +1,6 @@
+%h2 This is the index page
+- @posts.each do |post|
+  %div.posttitle= "Title: #{post.title}"
+  %div.postbody= "#{post.body}"
+%p That's the end of the posts!
+
