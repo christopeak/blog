@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def create
 		@post = Post.new(post_params)
 		@post.save
-
+		redirect_to posts_path
   end
 
   def remove
@@ -16,12 +16,13 @@ class PostsController < ApplicationController
   end
 
   def index
+		@post = Post.new
 		@posts = Post.all
   end
 
 	private
 
 	def post_params
-		params_require(:post).permit(:title, :body)
+		params.require(:post).permit(:title, :body)
 	end
 end
