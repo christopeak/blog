@@ -1,16 +1,39 @@
-%h2 This is the index page
-- @posts.each do |p|
-  %div.posttitle= "Title: #{p.title}"
-  %div.postbody= "#{p.body}"
-%p That's the end of the posts!
+.row
+  .col-md-12
+    - if user_signed_in?
+      %h3 Hi #{current_user.email}!
+    - else
+      %h3 Hello there!
+      = link_to "sign in", new_user_session_path
+.row
+  .col-md-4
+    - @posts.each do |p|
+      %h4 
+        %small Title: 
+        #{p.title}
+      .postbody.text_primary
+        %p.text-primary= p.body
+      - p.comments.each do |c|
+        %h5.comment
+          %small Comment:
+          #{c.body}
+    %p.text-left 
+      That's the end of the
+      %abbr(title='a blog post')
+        posts!
 
-= form_for @post do |t|
-  %div.posttitle= "New post:"
-  = t.label :title
-  = t.text_field :title
-  = t.label :body
-  = t.text_field :body
-  %p
-    = t.submit
+  .col-md-8
+    - if user_signed_in?
+      = form_for @post do |t|
+        .posttitle
+          %h4 New Post:
+          %p
+            = t.label :title
+            = t.text_field :title
+          %p
+            = t.label :body
+            = t.text_area :body
+          %p
+            = t.submit
 
 

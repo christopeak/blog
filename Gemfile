@@ -17,6 +17,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # App dependencies
 gem 'haml'
 gem 'haml-rails'
+gem 'devise'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

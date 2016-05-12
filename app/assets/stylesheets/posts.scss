@@ -5,9 +5,20 @@
 	color: #800000;
 	font-weight: bold;
 	padding-top: 0.5em;
+
+	form {
+					textarea {
+						color: #338;
+					}
+	}
+
 }
 
 .postbody {
 	padding-left: 1em;
 
+}
+
+h5.comment {
+	padding-left: 2em;
 }

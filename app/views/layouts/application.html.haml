@@ -1,0 +1,19 @@
+%html
+  %head
+    %title Blog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags
+  %body
+    .container-fluid
+      .jumbotron
+        %h2 Project Title 
+    .container#main-container
+      .row
+        .col-md-1
+        .col-md-11
+          %h2.notice= notice
+          %p.alert= alert
+          = yield
+          %button.btn
+            = link_to "sign out", destroy_user_session_path, method: :delete if user_signed_in?
