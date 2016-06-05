@@ -8,16 +8,9 @@
 .row
   .col-md-4
     - @posts.each do |p|
-      %h4 
-        %small Title: 
-        #{p.title}
-      .postbody.text_primary
-        %p.text-primary= p.body
-      - p.comments.each do |c|
-        %h5.comment
-          %small Comment:
-          #{c.body}
-      = link_to 'add comment', comments_add_path(post: p)
+      %h4
+        %small Title:
+        = link_to "#{p.title}", post_path(id: p.id)
     %p.text-left 
       That's the end of the
       %abbr(title='a blog post')
