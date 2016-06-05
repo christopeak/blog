@@ -17,6 +17,7 @@
         %h5.comment
           %small Comment:
           #{c.body}
+      = link_to 'add comment', comments_add_path(post: p)
     %p.text-left 
       That's the end of the
       %abbr(title='a blog post')
