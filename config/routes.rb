@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-	
+
   devise_for :users
-  get 'comments/add'
 
-  get 'comments/create'
-
-  get 'comments/delete'
 
 	root 'posts#index'
 
-	resources :posts
+	resources :posts do
+    resources :comments
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

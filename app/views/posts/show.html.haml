@@ -1,12 +1,19 @@
 .test
-  %h3.postbody=@post.title
-  .postbody.text_primary
-    %post.text-primary= @post.body
+  %h4.postbody= @post.title
+  .text-primary= @post.body
   - @post.comments.each do |c|
     %h5.comment
       %small Comment:
       #{c.body}
-  = link_to 'add comment', comments_add_path(post: @post)
-  %button.btn
-    = link_to "home", posts_path
-  %hr
+%hr
+- if user_signed_in?
+  = form_for [@post, @post.comments.build] do |c|
+    %h5 New Comment:
+    %p
+      = c.label :comment
+      = c.text_field :body
+    %p
+      = c.submit
+%hr
+%button.btn
+  = link_to "home", posts_path

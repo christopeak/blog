@@ -1,0 +1,7 @@
+= form_for @comment do |c|
+  %h4 New Comment:
+  %p
+    = c.label :comment
+    = c.text_field :body
+  %p
+    = c.submit

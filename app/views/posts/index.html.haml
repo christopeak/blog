@@ -11,23 +11,11 @@
       %h4
         %small Title:
         = link_to "#{p.title}", post_path(id: p.id)
-    %p.text-left 
+    %p.text-left
       That's the end of the
       %abbr(title='a blog post')
         posts!
-
-  .col-md-8
-    - if user_signed_in?
-      = form_for @post do |t|
-        .posttitle
-          %h4 New Post:
-          %p
-            = t.label :title
-            = t.text_field :title
-          %p
-            = t.label :body
-            = t.text_area :body
-          %p
-            = t.submit
+%button.btn
+  = link_to "new post", new_post_path
 
 

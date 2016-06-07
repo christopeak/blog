@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 #	before_action :authenticate_user!
-	
+
   def new
 		@post = Post.new
   end
@@ -16,11 +16,23 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params['id'])
+  	#@comment = Comment.new
   end
 
   def index
-		@post = Post.new
-		@posts = Post.all
+  	@post = Post.new
+    @posts = Post.all
+  end
+
+  def update
+    @post = Post.find(params['id'])
+    @comment = @post.comments.build
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
+    redirect_to post_path
   end
 
 	private
