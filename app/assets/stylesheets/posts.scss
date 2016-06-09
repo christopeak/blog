@@ -7,6 +7,15 @@
 	padding-top: 0.5em;
 }
 
+.page-header {
+  background-color: lightgray;
+  padding: 0.2em 0em 0.5em 2em;
+}
+
+.commentor {
+  padding-left: 6em;
+}
+
 .postbody {
 	padding-left: 0em;
 }
@@ -20,3 +29,31 @@ textarea {
 				height: 70px;
 }
 
+.smalltext {
+  font-weight: normal;
+  font-size: 12;
+}
+
+table.posts{
+  tr:nth-child(even) {background-color: #b7e2f0}
+  tr, td{
+    border-bottom: 1px solid #bbb;
+  }
+  width: 100%;
+  tr{
+    th{
+      font-weight: normal;
+      font-size: 12px;
+      height: 30px;
+      vertical-align: bottom;
+    }
+    td.main{
+      font-size: 12px;
+      font-weight: bold;
+    }
+    td.admin{
+      font-size: 10;
+      font-weight: normal;
+    }
+  }
+}

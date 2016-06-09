@@ -6,16 +6,23 @@
     = csrf_meta_tags
   %body
     .container-fluid
-      .jumbotron
+      .page-header.img-rounded
         %h2
           = link_to 'peak.blog', posts_path
-    .container#main-container
+    .container.img-rounded#main-container
       .row
         .col-md-1
         .col-md-11
-          %h2.notice= notice
-          %p.alert= alert
+          - if notice
+            %h2.notice= notice
+          - if alert
+            %p.alert= alert
           = yield
           %button.btn
             = link_to "sign out", destroy_user_session_path, method: :delete if user_signed_in?
             = link_to "sign in", new_user_session_path if !user_signed_in?
+      .row
+        .col-md-1
+        .col-md-11
+          - if user_signed_in?
+            %h5.standard You are signed in as #{current_user.name}.

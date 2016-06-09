@@ -5,6 +5,9 @@
     %h5.comment
       %small Comment:
       #{c.body}
+    %p.commentor
+
+      %small -#{c.user.name}
 %hr
 - if user_signed_in?
   = form_for [@post, @post.comments.build] do |c|
