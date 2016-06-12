@@ -4,7 +4,7 @@
       %h3 Hello there!
       = link_to "sign in", new_user_session_path
 .row
-  .col-md-6
+  .col-md-9
     %table.posts
       %tr
         %th Title
@@ -17,9 +17,6 @@
             %td.admin
               = link_to 'delete', {action: :destroy, id: p.id}, method: :delete, data: {confirm: 'Are you sure?'}
     %p.text-left
-      Thus completes the
-      %abbr(title='a blog post')
-        posts.
 %button.btn
   = link_to "new post", new_post_path
 

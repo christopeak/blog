@@ -17,7 +17,8 @@
  @import "bootstrap";
 
 #main-container{
-  background-color: lightblue;
+  background-color: #f3ffff;
+  outline: #cbf6ff solid 1px;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -27,3 +28,7 @@
 }
 
 p{color: #606060;}
+
+.mainheader{
+  text-shadow: 3px 3px 5px #a0a0a0;
+}

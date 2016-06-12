@@ -1,7 +1,7 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.posttitle { 
+.posttitle {
 	color: #800000;
 	font-weight: bold;
 	padding-top: 0.5em;
@@ -13,15 +13,38 @@
 }
 
 .commentor {
-  padding-left: 6em;
+  padding-left: 1em;
+  width: 20em;
+  font-weight: 500;
+}
+
+.commentdate{
+  position: absolute;
+  left: 20em;
+  font-weight: 500;
+}
+
+#comment{
+  position: static;
+  outline: #cbf6ff solid 1px;
+  margin: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em 0.5em;
+  box-shadow: 3px 3px 10px #a6a6a6;
+}
+
+.post{
+  div:nth-of-type(odd) {background-color: #fcfcfc;}
+  div:nth-of-type(even) {background-color: #eee;}
 }
 
 .postbody {
 	padding-left: 0em;
 }
 
-h5.comment {
-	padding-left: 2em;
+.comment {
+  position: static;
+  top: 3em;
+	padding-left: 1em;
 }
 
 textarea {
@@ -35,9 +58,9 @@ textarea {
 }
 
 table.posts{
-  tr:nth-child(even) {background-color: #b7e2f0}
+  tr:nth-child(even) {background-color: #d5eef6}
   tr, td{
-    border-bottom: 1px solid #bbb;
+    padding: 5px 0 5px 0.5em;
   }
   width: 100%;
   tr{
@@ -46,6 +69,8 @@ table.posts{
       font-size: 12px;
       height: 30px;
       vertical-align: bottom;
+      border-bottom: 1px solid #ccc;
+      padding-left: 0.5em;
     }
     td.main{
       font-size: 12px;
