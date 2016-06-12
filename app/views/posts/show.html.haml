@@ -1,2 +1,22 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+.test
+  %h4.postbody= @post.title.titleize
+  .text-primary= @post.body
+  .post
+    - @post.comments.each do |c|
+      #comment
+        %span.text-primary.commentor
+          %small #{c.user.name}
+        %span.commentdate
+          %small #{c.updated_at.strftime("%m/%d/%Y @ %l:%M %P")}
+        %p.comment
+          #{c.body}
+%hr
+- if user_signed_in?
+  = form_for [@post, @post.comments.build] do |c|
+    %p
+      = c.label :comment
+      = c.text_field :body
+      = c.submit
+%hr
+%button.btn
+  = link_to "home", posts_path

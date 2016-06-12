@@ -1,2 +1,12 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+= form_for @post do |t|
+  %h4 New Post:
+  %p
+    = t.label :title
+    = t.text_field :title
+  %p
+    = t.label :body
+    = t.text_area :body
+  %p
+    = t.submit
+%button.btn
+  = link_to "back", posts_path
