@@ -14,9 +14,11 @@
 - if user_signed_in?
   = form_for [@post, @post.comments.build] do |c|
     %p
-      = c.label :comment
-      = c.text_field :body
-      = c.submit
+      = c.label "#{:comment}:"
+    %p
+      = c.text_area :body, size: "80x8"
+    %p
+      = c.submit id: 'commit'
 %hr
 %button.btn
   = link_to "home", posts_path

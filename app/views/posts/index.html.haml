@@ -8,16 +8,9 @@
     %table.posts
       %tr
         %th Title
-        %th Delete
       %tr
         - @posts.each do |p|
           %tr
             %td.main
               = link_to "#{p.title.titleize}", post_path(id: p.id)
-            %td.admin
-              = link_to 'delete', {action: :destroy, id: p.id}, method: :delete, data: {confirm: 'Are you sure?'}
-    %p.text-left
-%button.btn
-  = link_to "new post", new_post_path
-
 
