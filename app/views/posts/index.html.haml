@@ -4,13 +4,15 @@
       %h3 Hello there!
       = link_to "sign in", new_user_session_path
 .row
-  .col-md-9
+  .col-md-6
     %table.posts
-      %tr
-        %th Title
       %tr
         - @posts.each do |p|
           %tr
             %td.main
               = link_to "#{p.title.titleize}", post_path(id: p.id)
-
+              .indexbody
+                = p.body
+              .photo
+  .col-md-5
+    .hotel_finder
