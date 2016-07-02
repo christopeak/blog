@@ -17,3 +17,6 @@
 /tmp
 *.sublime-project
 *.sublime-workspace
+credentials.csv
+secrets
+
