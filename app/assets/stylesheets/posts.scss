@@ -32,6 +32,11 @@
   box-shadow: 3px 3px 10px #a6a6a6;
 }
 
+#commit{
+	position: relative;
+	left: 2em;
+}
+
 .post{
   div:nth-of-type(odd) {background-color: #fcfcfc;}
   div:nth-of-type(even) {background-color: #eee;}
@@ -47,9 +52,20 @@
 	padding-left: 1em;
 }
 
+#comment_body {
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+  box-shadow: 3px 3px 10px #a6a6a6;
+	position: relative;
+	left: 2em;
+
+}
+
 textarea {
-				width: 250px;
+				width: 150px;
 				height: 70px;
+				margin-bottom: 1em;
+				padding-bottom: 1em;
 }
 
 .smalltext {

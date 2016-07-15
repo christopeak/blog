@@ -16,19 +16,30 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.page-header{
+}
+
 #main-container{
   background-color: #f3ffff;
   outline: #cbf6ff solid 1px;
   padding-top: 1em;
   padding-bottom: 1em;
+	border-radius: 5px;
 }
 
 .standard{
   color: #606060;
+	margin-top: 0.5em;
 }
 
 p{color: #606060;}
 
 .mainheader{
   text-shadow: 3px 3px 5px #a0a0a0;
+	padding-top: 0.7em;
+}
+
+.btn{
+	background-color: #b3b3b3;
+	text-shadow: 0 0 0 black;
 }

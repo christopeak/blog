@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
 
-  describe "GET #add" do
+  describe "GET #new", focus: :true do
+    let(:p) { FactoryGirl.create :post }
     it "returns http success" do
-      get :add
+      get :new, post: { post_id: p.to_param }
       expect(response).to have_http_status(:success)
     end
   end

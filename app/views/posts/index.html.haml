@@ -4,20 +4,27 @@
       %h3 Hello there!
       = link_to "sign in", new_user_session_path
 .row
-  .col-md-9
+  .col-md-6
     %table.posts
-      %tr
-        %th Title
-        %th Delete
       %tr
         - @posts.each do |p|
           %tr
             %td.main
               = link_to "#{p.title.titleize}", post_path(id: p.id)
-            %td.admin
-              = link_to 'delete', {action: :destroy, id: p.id}, method: :delete, data: {confirm: 'Are you sure?'}
-    %p.text-left
-%button.btn
-  = link_to "new post", new_post_path
-
-
+              .indexbody
+                = p.body
+              .photo
+  .col-md-5
+    .hotel_finder
+      :javascript
+          (function() {
+            var cx = '004887418215399210046:0brbzbvykn8';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            //gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            gcse.src = 'https://www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+            })();
+      ! <gcse:search></gcse:search>
