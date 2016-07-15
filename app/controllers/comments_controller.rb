@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 		@admin = AdminUser.first
 		if @comment.save
 			#- UserMailer.welcome_email(@user).deliver_now
-			CommentNotifier.send_comment_email(@admin).deliver
+			CommentNotifier.send_comment_email(@admin, @comment).deliver
 		end
     redirect_to post_path(@post)
   end
