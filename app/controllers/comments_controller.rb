@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.update_attribute(:user_id, current_user.id)
 		@user = User.find(current_user.id)
 		if @comment.save
-			UserMailer.welcome_email(@user).deliver_now
+			#- UserMailer.welcome_email(@user).deliver_now
 		end
     redirect_to post_path(@post)
   end
