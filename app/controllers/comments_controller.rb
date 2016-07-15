@@ -9,8 +9,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.update_attribute(:user_id, current_user.id)
 		@user = User.find(current_user.id)
+		@admin = AdminUser.first
 		if @comment.save
 			#- UserMailer.welcome_email(@user).deliver_now
+			CommentNotifier.send_comment_email(@admin).deliver
 		end
     redirect_to post_path(@post)
   end
