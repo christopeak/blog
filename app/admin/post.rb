@@ -13,10 +13,10 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
-controller do
-	def permitted_params
-		params.permit post: [:title, :body]
+	controller do
+		def permitted_params
+			params.permit post: [:title, :body]
+		end
 	end
-end
 
 end
