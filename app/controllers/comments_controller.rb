@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new(params[:post_id])
+    @comment = Comment.new(params[:comment])
   end
 
 private
