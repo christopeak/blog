@@ -1,10 +1,10 @@
 require 'rails_helper'
-require 'factory_girl'
-include Devise::TestHelpers
+#require 'factory_girl'
+#include Devise::TestHelpers
 
 RSpec.describe CommentsController, type: :controller do
 
-  describe "GET #new" do
+  describe "GET #new", focus: :true do
     let(:p) { FactoryGirl.create :post }
     it "returns http success" do
       get :new, post_id: { post_id: p.to_param }
