@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'factory_girl'
 include Devise::TestHelpers
 
 RSpec.describe CommentsController, type: :controller do
@@ -11,12 +12,15 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
-  describe "POST #create", focus: :true do
+  describe "POST #create" do
+		#@request.env["devise.mapping"] = Devise.mappings[:user]	
+		user = FactoryGirl.create(:user)
+		sign_in user
 		#before { sign_in(user) }
 		let(:p) { FactoryGirl.create :post }
 		before(:all) do
 			@user = FactoryGirl.build( :user, email: 'bogus@test3.edu' )
-			#sign_in @user
+			sign_in @user
 			#let(:u) { FactoryGirl.create :user }
 			#before { controller.stub(:current_user).and_return u }
 			#let(:current_user) { FactoryGirl.create :user }

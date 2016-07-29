@@ -3,7 +3,7 @@ require 'factory_girl'
 
 RSpec.describe PostsController, type: :controller do
 
-  describe "GET #new" do
+  describe "GET #new" , focus: :true do
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
