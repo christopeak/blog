@@ -5,15 +5,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    @comment.update_attribute(:user_id, current_user.id)
-		@user = User.find(current_user.id)
-		@admin = AdminUser.first
-		if @comment.save
-			CommentNotifier.send_comment_email(@admin, @comment).deliver
+    post = Post.find(params[:post_id])
+    comment = post.comments.create(comment_params)
+    comment.update_attribute(:user_id, current_user.id)
+		admin = AdminUser.first
+		if comment.save
+			CommentNotifier.send_comment_email(admin, comment).deliver
+			redirect_to post_path(post)
+		else
+			redirect_to posts_path
 		end
-    redirect_to post_path(@post)
   end
 
   def delete
