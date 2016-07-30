@@ -44,6 +44,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 	gem 'rspec-rails', '~> 3.2.0'
+	gem 'shoulda-matchers'
 	gem 'factory_girl_rails'
 # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
