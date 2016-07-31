@@ -10,10 +10,24 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
-  describe "GET #create" do
+  describe "POST #create" do
+		#@request.env["devise.mapping"] = Devise.mappings[:user]	
+		#user = FactoryGirl.create(:user)
+		#sign_in user
+		#before { sign_in(user) }
+		let(:p) { FactoryGirl.create :post }
+		let(:c) { FactoryGirl.create :comment }
+		#before(:all) do
+			#@user = FactoryGirl.build( :user, email: 'bogus@test3.edu' )
+			#sign_in @user
+			#let(:u) { FactoryGirl.create :user }
+			#before { controller.stub(:current_user).and_return u }
+			#let(:current_user) { FactoryGirl.create :user }
+			#let(:c) { FactoryGirl.build :comment }
+		#end
     it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+			post :create, post_id: p.id, comment: { body: c.body }
+			expect(response).to have_http_status(:success)
     end
   end
 
