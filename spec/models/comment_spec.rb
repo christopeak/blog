@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model, focus: true do
-	subject { described_class.new(body: 'bodybody') }
+	let(:user) { FactoryGirl.create(:user, email: 'me@test.com', password: 'password') }
+	let(:post) { FactoryGirl.create(:post) }
+	subject { described_class.new(body: 'bodybody', user: user, post: post) }
 
 	it 'is valid with valid attributes' do
 		expect(subject).to be_valid
@@ -18,4 +20,10 @@ RSpec.describe Comment, type: :model, focus: true do
 
 	it { should belong_to(:post) }
 	it { should belong_to(:user) }
+
+	describe 'Validations' do
+		it { should validate_presence_of(:user) }
+		it { should validate_presence_of(:post) }
+	end
 end
+
